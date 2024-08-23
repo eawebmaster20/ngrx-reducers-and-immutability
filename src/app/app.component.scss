@@ -1,0 +1,97 @@
+.main-container{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100%;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgba(204, 204, 204, 0.5354516807) 0%, rgb(183 249 162) 100%);
+    .counter-container{
+        display: grid;
+        grid-template-columns: 1fr 30px;
+        gap: 0.5rem;
+        .input-container{
+            display: flex; 
+            grid-column: 1 / -1;
+            margin-bottom: 0.5rem;
+            input{
+                width: 96px;
+                margin-left: auto;
+                border: none;
+            }
+            label{
+                text-wrap: nowrap;
+            }
+        }
+        .undo-btn{
+            cursor: pointer;
+            box-shadow: 1px 1px 2px rgb(2, 0, 36);
+            display: flex;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #090303;
+        }
+    }
+    .inc-dec-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 300px;
+        border: 2px solid #ccc;
+        button{
+            border: none;
+            font-size: 28px;
+            transition: background-color 0.2s ease-in-out;
+            &:hover{
+                background-color: #ccc;
+                cursor: pointer;
+            }
+        }
+        p{
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+        }
+    }
+    .counter-reset-btn{
+        background-color: #090303;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 10px;
+        padding: 0.5rem 0;
+        border-radius: 10px;
+        display: flex;
+        font-size: 18px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        grid-column: 1 / -1
+        
+    }
+    .error-info{
+        opacity: 0;
+        color: red;
+        margin-top: 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+    .show-hidden-item{
+        opacity: 1;
+    }
+}
+.spin-icon{
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+@keyframes spin{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+@-moz-keyframes spin { 
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+@-webkit-keyframes spin { 
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
