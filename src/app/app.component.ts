@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { decrement, increment, reset, setCountTo, undo } from './state/counter.actions';
+import { decrement, increment, incrementBy, reset, setCountTo, undo } from './state/counter.actions';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LogicService } from './services/logic.service';
@@ -25,9 +25,14 @@ export class AppComponent {
     this.counter.subscribe((res)=>console.log(res));
    }
 
-  setCounter(){
-    this.store.dispatch(setCountTo({value:this.countInputVal}))
-    this.countInputVal = 0;
+  setCounter(value: string){
+    if (Number(value)>0) {
+      this.store.dispatch(setCountTo({value:Number(value)}));
+    }
+  }
+
+  changeInterval(value:string){
+    this.store.dispatch(incrementBy({value:Number(value)}));
   }
   increment(){
     this.store.dispatch(increment());

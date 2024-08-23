@@ -10,14 +10,12 @@
         grid-template-columns: 1fr 30px;
         gap: 0.5rem;
         .input-container{
-            display: flex; 
+            display: flex;
             grid-column: 1 / -1;
             margin-bottom: 0.5rem;
-            input{
-                width: 96px;
-                margin-left: auto;
-                border: none;
-            }
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.5rem;
             label{
                 text-wrap: nowrap;
             }
@@ -94,4 +92,27 @@
 @-webkit-keyframes spin { 
     0%{transform: rotate(0deg);}
     100%{transform: rotate(360deg);}
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input-group{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+
+    input{
+        width: 94.5%;
+    }
+    select{
+        width:100%;
+    }
 }

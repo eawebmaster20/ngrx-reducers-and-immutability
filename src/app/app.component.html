@@ -3,8 +3,18 @@
     <div class="counter-container">
       <div class="inc-dec-container">
         <div class="input-container">
-          <label for="input">enter an number and hit enter</label>
-          <input [(ngModel)]="countInputVal" (keydown.enter)="setCounter()" type="number">
+          <span class="input-group">
+            <span>Set counter to :</span><input #inputVal (keydown.enter)="setCounter(inputVal.value)" type="number" placeholder="initialize cart here">
+          </span>
+          <span class="input-group">
+            <span>Set Counter interval :</span>
+            <select #intervalVal (change)="changeInterval(intervalVal.value)">
+              <option value="1">1</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="25">25</option>
+            </select>
+          </span>
         </div>
         <button (click)="decrement()">-</button>
         <p>{{ counter | async }}</p>
